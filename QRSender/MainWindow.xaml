@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="QRSender" Width="800" Height="450">
     <Grid>
-
+        <Button Name="ScanButton"
+                Content="Scan QR Code"
+                Width="150"
+                Height="50"
+                Margin="0 20 0 0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+        />
+        <TextBox Name="ResultText"
+                 Width="760"
+                 Height="300"
+                 Margin="0 80 0 0"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 IsReadOnly="True"
+        />
     </Grid>
 </Window>
