@@ -24,5 +24,10 @@ namespace QRSender
         {
             InitializeComponent();
         }
+
+        private void OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
