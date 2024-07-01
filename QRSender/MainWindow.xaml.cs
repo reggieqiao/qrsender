@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
 
 namespace QRSender
 {
@@ -29,6 +19,17 @@ namespace QRSender
         private void OnClick(object sender, RoutedEventArgs e)
         {
             Bitmap screenshot = CaptureScreen();
+            var qrcode = DecodeQRCode(screenshot);
+            ResultText.Text = qrcode;
+        }
+
+        private string? DecodeQRCode(Bitmap bitmap)
+        {
+            var source = new BitmapLuminanceSource(bitmap);
+            var binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
+            var reader = new QRCodeReader();
+            var result = reader.decode(binaryBitmap);
+            return result?.Text;
         }
 
         private Bitmap CaptureScreen()
