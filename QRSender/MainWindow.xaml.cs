@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
@@ -42,6 +44,16 @@ namespace QRSender
                 g.CopyFromScreen(0, 0, 0, 0, new System.Drawing.Size(screenWidth, screenHeight), CopyPixelOperation.SourceCopy);
             }
             return screenshot;
+        }
+
+        private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                Clipboard.SetText(textBox.Text);
+                MessageBox.Show("Text copied to clipboard.");
+            }
         }
     }
 }

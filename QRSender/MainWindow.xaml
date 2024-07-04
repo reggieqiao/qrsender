@@ -23,6 +23,8 @@
                  VerticalAlignment="Center"
                  HorizontalAlignment="Center"
                  IsReadOnly="True"
+                 MouseDoubleClick="OnMouseDoubleClick"
+                 Text="https://www.google.com"
         />
     </Grid>
 </Window>
