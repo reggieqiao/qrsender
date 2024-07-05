@@ -51,6 +51,7 @@ namespace QRSender
             var textBox = sender as TextBox;
             if (textBox != null)
             {
+                textBox.SelectAll();
                 Clipboard.SetText(textBox.Text);
                 MessageBox.Show("Text copied to clipboard.");
             }
