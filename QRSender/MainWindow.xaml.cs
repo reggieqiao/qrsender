@@ -49,7 +49,7 @@ namespace QRSender
         private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var textBox = sender as TextBox;
-            if (textBox != null)
+            if (textBox != null && !string.IsNullOrWhiteSpace(textBox.Text))
             {
                 textBox.SelectAll();
                 Clipboard.SetText(textBox.Text);
