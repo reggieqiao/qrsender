@@ -20,6 +20,7 @@ namespace QRSender
 
         private void OnClick(object sender, RoutedEventArgs e)
         {
+            this.WindowState = WindowState.Minimized;
             Bitmap screenshot = CaptureScreen();
             var qrcode = DecodeQRCode(screenshot);
             ResultText.Text = qrcode;
