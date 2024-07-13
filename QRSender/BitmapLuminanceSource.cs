@@ -10,7 +10,7 @@ namespace QRSender
             var height = bitmap.Height;
             var width = bitmap.Width;
 
-            var rgb = new byte[height * width * 4];
+            var rgb = new byte[bitmap.Width * bitmap.Height * 4];
             var index = 0;
             for (var y = 0; y < height; y++)
             {
