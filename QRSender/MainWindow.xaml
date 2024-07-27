@@ -33,6 +33,7 @@
                  HorizontalAlignment="Stretch"
                  IsReadOnly="True"
                  MouseDoubleClick="OnMouseDoubleClick"
+                 ToolTip="Double-click to copy the content"
                  Grid.Row="1" />
     </Grid>
 </Window>
