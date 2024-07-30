@@ -38,12 +38,15 @@ namespace QRSender
 
         private Bitmap CaptureScreen()
         {
-            var screenWidth = (int)SystemParameters.PrimaryScreenWidth;
-            var screenHeight = (int)SystemParameters.PrimaryScreenHeight;
-            Bitmap screenshot = new Bitmap(screenWidth, screenHeight, PixelFormat.Format32bppArgb);
-            using(Graphics g = Graphics.FromImage(screenshot))
+            var screenshot = new Bitmap(1, 1);
+            if (System.Windows.Forms.Screen.PrimaryScreen is not null)
             {
-                g.CopyFromScreen(0, 0, 0, 0, new System.Drawing.Size(screenWidth, screenHeight), CopyPixelOperation.SourceCopy);
+                var bounds = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
+                screenshot = new Bitmap(bounds.Width, bounds.Height, PixelFormat.Format32bppArgb);
+                using (var g = Graphics.FromImage(screenshot))
+                {
+                    g.CopyFromScreen(0, 0, 0, 0, new System.Drawing.Size(bounds.Width, bounds.Height), CopyPixelOperation.SourceCopy);
+                }
             }
             return screenshot;
         }
